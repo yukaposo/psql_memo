@@ -1,0 +1,10 @@
+# 月日の加算・除算	
+  dateadd(day,30,datetime)
+  datediff(day,大,小) # 「大 - 小」
+  add_month(GETDATE(), -12)
+  
+# 日の切り捨て
+  DATE_TRUNC('month', datetime)
+
+# cntを累積する
+  sum(cnt) over(partition BY yyyymm ORDER BY date ROWS unbounded preceding) as goukei
