@@ -1,0 +1,8 @@
+# jsonカラム内の特定箇所を参照する
+  json_extract_path_text(json_column ,'該当箇所のラベル*') <> ''
+  # *hoge:xxでxxを取り出したい時はhogeを入れる
+
+# カンマで切り離す
+  ,case when substring(SPLIT_PART(ins_trace, ',', 2), 1, 2) in ('HA', 'DA')
+   then substring(SPLIT_PART(ins_trace, ',', 2), charindex(':', SPLIT_PART(ins_trace, ',', 2)) + 1, len(SPLIT_PART(ins_trace, ',', 2)))
+   else null end
