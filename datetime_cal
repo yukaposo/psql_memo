@@ -8,3 +8,6 @@
 
 # cntを累積する
   sum(cnt) over(partition BY yyyymm ORDER BY date ROWS unbounded preceding) as goukei
+
+# カレンダーベースの年齢計算
+  DATEDIFF(YEAR, birth_date, datetime) + (CASE WHEN DATE_PART (doy, birth_date) > DATE_PART (doy, datetime) THEN - 1 ELSE 0 END)
