@@ -6,3 +6,6 @@
   ,case when substring(SPLIT_PART(ins_trace, ',', 2), 1, 2) in ('HA', 'DA')
    then substring(SPLIT_PART(ins_trace, ',', 2), charindex(':', SPLIT_PART(ins_trace, ',', 2)) + 1, len(SPLIT_PART(ins_trace, ',', 2)))
    else null end
+   
+# 参考
+  https://www.postgresql.jp/document/9.4/html/functions-json.html
